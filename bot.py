@@ -72,7 +72,8 @@ async def queue_worker(bot: Bot):
 
 async def main() -> None:
     # Initialize Bot instance with a default parse mode which will be passed to all API calls
-    bot = Bot(TOKEN, parse_mode=ParseMode.HTML)
+    bot = Bot(TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+    
     # And the run events dispatching
     dp['task_list'] = []
     dp.startup.register(on_startup)
